@@ -1,0 +1,19 @@
+{
+    "name": "villa/app-salon",
+    "description": "Proyecto PHP MVC",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "MVC\\":"./",
+            "Controllers\\":"./controllers",
+            "Model\\":"./models"
+        }
+    },
+    "authors": [
+        {
+            "name": "Andrés Nehuel",
+            "email": "villagraandres00@gmail.com"
+        }
+    ],
+    "require": {}
+}
