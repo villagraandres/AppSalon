@@ -1,4 +1,4 @@
-<h1 class="nombre-pagina">Olvide Contraseña</h1>
+<h1 class="nombre-pagina">Olvide mi Contraseña</h1>
 <p class="descripcion-pagina">Reestablece tu contraseña escribiendo tu email a continuación</p>
 
 <form action="/olvide" class="formulario" method="POST">
