@@ -2,7 +2,19 @@
 <p class="descripcion-pagina">Inicia sesión con tus datos</p>
 <?php 
     include_once __DIR__ . "/../templates/alertas.php";
+    
+    
+$resultado=$_GET['resultado'] ?? null;
 ?>
+
+
+<?php if(intval($resultado)===1):?>
+    <div class="alerta exito">Contraseña reestablecida correctamente</div>    
+<?php endif;?>
+
+
+
+
 
 
 <form action="" class="formulario" method="POST" action="/">
