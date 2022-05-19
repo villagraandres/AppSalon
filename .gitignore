@@ -125,8 +125,7 @@ info.php
 .DS_Store
 
 /vs.code
-usuario.php
-.usuario.php
+
 src/
 .vscode/
 .scss
