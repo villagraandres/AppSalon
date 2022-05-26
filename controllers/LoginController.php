@@ -59,7 +59,7 @@ class LoginController{
 
         $alertas=[];
         if($_SERVER['REQUEST_METHOD']==='POST'){
-            $auth= new Usuario($_POST);
+          $auth= new Usuario($_POST);
           $alertas= $auth->validarEmail();
             if(empty($alertas)){
 
@@ -197,6 +197,17 @@ class LoginController{
           $usuario->token=null;
           $usuario->guardar();
           Usuario::setAlerta('exito','Cuenta comproboda correctamente');
+
+           //Autenticar el usuario
+            if($_SESSION['nombre']){
+         
+                $_SESSION['id']=$usuario->id;
+                $_SESSION['nombre']=$usuario->nombre. " ". $usuario->apellido;
+                $_SESSION['email']=$usuario->email;
+                $_SESSION['login']=true;
+            }
+         
+
         
       }
         $alertas=Usuario::getAlertas();
