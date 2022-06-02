@@ -33,3 +33,10 @@ function mostrarNotificacion($codigo){
 
     return $mensaje;
 }
+
+//funcion que revisa si etsa autenticado
+function isAuth(): void{
+    if(!isset($_SESSION['login'])){
+        header('Location: /');
+    }
+}
