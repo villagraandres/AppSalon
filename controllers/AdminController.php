@@ -1,5 +1,7 @@
 <?php
 namespace Controllers;
+
+use Model\AdminCita;
 use MVC\Router;
 
 class AdminController{
@@ -19,8 +21,11 @@ class AdminController{
         $consulta .= " ON servicios.id=citasServicios.servicioId ";
 /*         $consulta .= " WHERE fecha =  '${fecha}' ";
  */      
+       $citas= AdminCita::SQL($consulta);
+      
         $router->render('admin/index',[
-            'nombre'=>$_SESSION['nombre']
+            'nombre'=>$_SESSION['nombre'],
+            'citas'=>$citas
         ]);
     }
 }
