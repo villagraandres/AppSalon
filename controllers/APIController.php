@@ -19,6 +19,7 @@ class APIController{
       $id=$resultado['id'];
 
         //Almacena la cita y el servicio
+        //Convertimos el string de servicios en un arreglo
         $idServicios= explode(",", $_POST['servicios']);
         foreach($idServicios as $idServicio){
             $args=[
@@ -35,4 +36,15 @@ class APIController{
 
      echo json_encode(['resultado' => $resultado]); 
     }
+
+   public static function eliminar(){
+       if($_SERVER['REQUEST_METHOD']==='POST'){
+           $id=$_POST['id'];
+           $cita=Cita::find($id);
+           
+           $resultado=$cita->eliminar();
+           header('Location:'. $_SERVER['HTTP_REFERER']) ;
+           echo json_encode(['resultado'=>$resultado]);
+       }
+   }
 }

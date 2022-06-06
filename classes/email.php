@@ -70,4 +70,31 @@ class Email{
         $mail->send();
    
     }
+
+    public static function enviarRazon($nombre,$razon){
+        //Crear el objeto de email
+        $mail= new PHPMailer();
+        $mail->isSMTP();
+        $mail->Host = 'smtp.mailtrap.io';
+        $mail->SMTPAuth = true;
+        $mail->Port = 2525;
+        $mail->Username = 'd98386aff043cd';
+        $mail->Password = 'ad9a6874b4b037';
+
+        $mail->setFrom('cuentas@appsalon.com');
+        $mail->addAddress('cuentas@appsalon.com','AppSalon.com');
+        $mail->Subject='Reestablecer contrasela';
+
+        $mail->isHTML(TRUE);
+        $mail->CharSet='UTF-8';
+        $contenido="<html>";
+        $contenido.="<p><strong>Hola ". $nombre. "</strong> Hemos eliminado tu cita por el siguiente motivo:</p>";
+        $contenido.="<p ".$razon. "</p>";
+        $contenido.="</html>";
+        $mail->Body=$contenido;
+
+        //Enviar
+        $mail->send();
+   
+    }
 }
