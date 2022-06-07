@@ -4,5 +4,5 @@ appsalon_mvc.sql
 node_modules/
 gulpfile.js
 package.json
-package-lock
+package-lock.json
 .env
