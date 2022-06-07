@@ -42,9 +42,9 @@ class APIController{
            $id=$_POST['id'];
            $cita=Cita::find($id);
            
-           $resultado=$cita->eliminar();
-           header('Location:'. $_SERVER['HTTP_REFERER']) ;
-           echo json_encode(['resultado'=>$resultado]);
+          $resultado=$cita->eliminar();
+            header('Location:'. $_SERVER['HTTP_REFERER']) ;
+           echo json_encode(['resultado'=>$_POST]);
        }
    }
 }

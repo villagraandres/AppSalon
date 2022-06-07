@@ -104,22 +104,31 @@ class LoginController{
         }
         if($_SERVER['REQUEST_METHOD']==='POST'){
             //Leer y guardar la contraseña
+            
             $password= new Usuario($_POST);
             $alertas= $password->validarPassword();
 
-            if(empty($alertas)){
-               $usuario->password=null;
-               $usuario->password=$password->password;
-               $usuario->hashPassword();    
-               $usuario->token=null;
-            $resultado= $usuario->guardar();
-            if($resultado){
-                header('Location: /?resultado=1');
-            }
 
-               debuguear($usuario);
+            if($password->password===$_POST['password2']){
+                if(empty($alertas)){
+                    $usuario->password=null;
+                    $usuario->password=$password->password;
+                    $usuario->hashPassword();    
+                    $usuario->token=null;
+                 $resultado= $usuario->guardar();
+                 if($resultado){
+                     header('Location: /?resultado=1');
+                 }
             }
-        }
+        }else{
+                Usuario::setAlerta('error','Las contraseñas no son iguales');
+            }
+          
+            
+
+               
+            }
+        
 
        
         $alertas= Usuario::getAlertas();
@@ -196,19 +205,22 @@ class LoginController{
          Usuario::setAlerta('error','Token no valido');
       }else{
           //Modificar a confirmado
+          
           $usuario->confirmado="1";
           $usuario->token=null;
           $usuario->guardar();
           Usuario::setAlerta('exito','Cuenta comproboda correctamente');
-
+       
            //Autenticar el usuario
-            if($_SESSION['nombre']){
-         
-                $_SESSION['id']=$usuario->id;
-                $_SESSION['nombre']=$usuario->nombre. " ". $usuario->apellido;
-                $_SESSION['email']=$usuario->email;
-                $_SESSION['login']=true;
+            //Autenticar el usuario
+            if(!$_SESSION['nombre']){
+                session_start();
             }
+            
+            $_SESSION['id']=$usuario->id;
+            $_SESSION['nombre']=$usuario->nombre. " ". $usuario->apellido;
+            $_SESSION['email']=$usuario->email;
+            $_SESSION['login']=true;
          
 
         

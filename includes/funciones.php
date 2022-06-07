@@ -47,3 +47,8 @@ function esUltimo( string $actual, string $proximo): bool{
         return false;
     }
 }
+function esAdmin(): void{
+    if(!isset($_SESSION['admin'])){
+        header('Location: /');
+    }
+}

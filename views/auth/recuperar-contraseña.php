@@ -10,6 +10,10 @@
         <label for="contraseña">Contraseña</label>
         <input type="password" id="password" name="password" placeholder="Tu nueva contraseña">
     </div>
+    <div class="campo">
+        <label for="contraseña2">Confirmar contraseña</label>
+        <input type="password" id="password2" name="password2" placeholder="Confirma tu contraseña">
+    </div>
     <input type="submit" class="boton" value="Restablecer contraseña">
 </form>
 

@@ -9,6 +9,7 @@ class AdminController{
         if(!$_SESSION['nombre']){
             session_start();
         }
+        esAdmin();
 
         $fecha=$_GET['fecha'] ?? date('Y-m-d'); //Si no encuentra nada en la URL se va a la fecha del servidor
         $fechas=explode('-',$fecha);

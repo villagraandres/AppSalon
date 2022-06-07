@@ -8,6 +8,7 @@
         <label for="email">Email</label>
         <input type="email" id="email" name="email" placeholder="Tu email">
     </div>
+   
 
     <input type="submit" class="boton" value="Enviar Instrucciones">
 </form>
