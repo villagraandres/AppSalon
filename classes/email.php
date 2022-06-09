@@ -34,7 +34,7 @@ class Email{
         $mail->CharSet='UTF-8';
         $contenido="<html>";
         $contenido.="<p><strong>Hola ". $this->nombre. "</strong> has creado tu cuenta solo debes confirmarla presionando el siguiente enlace</p>";
-        $contenido.="<p>Presiona aqui: <a href='http://appsalon.test/confirmar-cuenta?token=".$this->token."'>Confirmar cuenta</a> </p>";
+        $contenido.="<p>Presiona aqui: <a href='http://gato.test/confirmar-cuenta?token=".$this->token."'>Confirmar cuenta</a> </p>";
         $contenido.="<p>Si tu no solicitaste esta cuenta, ignora el mensaje</p>";
         $contenido.="</html>";
         $mail->Body=$contenido;

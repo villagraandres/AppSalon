@@ -161,8 +161,8 @@ class LoginController{
                     $usuario->crearToken();
 
                     // Enviar el Email
-                   /*  $email = new Email( $usuario->email,$usuario->nombre, $usuario->token);
-                    $email->enviarConfirmacion(); */
+                     $email = new Email($usuario->email,$usuario->nombre, $usuario->token);
+                    $email->enviarConfirmacion(); 
 
                     // Crear el usuario
                     $resultado = $usuario->guardar();
@@ -205,22 +205,19 @@ class LoginController{
          Usuario::setAlerta('error','Token no valido');
       }else{
           //Modificar a confirmado
-          
           $usuario->confirmado="1";
           $usuario->token=null;
           $usuario->guardar();
           Usuario::setAlerta('exito','Cuenta comproboda correctamente');
-       
+
            //Autenticar el usuario
-            //Autenticar el usuario
-            if(!$_SESSION['nombre']){
-                session_start();
+            if($_SESSION['nombre']){
+         
+                $_SESSION['id']=$usuario->id;
+                $_SESSION['nombre']=$usuario->nombre. " ". $usuario->apellido;
+                $_SESSION['email']=$usuario->email;
+                $_SESSION['login']=true;
             }
-            
-            $_SESSION['id']=$usuario->id;
-            $_SESSION['nombre']=$usuario->nombre. " ". $usuario->apellido;
-            $_SESSION['email']=$usuario->email;
-            $_SESSION['login']=true;
          
 
         
