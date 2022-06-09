@@ -1,7 +1,7 @@
 <?php 
 namespace Controllers;
 
-use Classes\Email;
+use Classes\email;
 use Model\Usuario;
 use MVC\Router;
 
@@ -161,8 +161,8 @@ class LoginController{
                     $usuario->crearToken();
 
                     // Enviar el Email
-                    $email = new Email( $usuario->email,$usuario->nombre, $usuario->token);
-                    $email->enviarConfirmacion();
+                   /*  $email = new Email( $usuario->email,$usuario->nombre, $usuario->token);
+                    $email->enviarConfirmacion(); */
 
                     // Crear el usuario
                     $resultado = $usuario->guardar();
