@@ -61,7 +61,7 @@ class Email{
         $mail->CharSet='UTF-8';
         $contenido="<html>";
         $contenido.="<p><strong>Hola ". $this->nombre. "</strong> Has solicitado reestablecer tu contraseña, presiona el siguiente enlace para hacerlo.</p>";
-        $contenido.="<p>Presiona aqui: <a href='http://appsalon.test/recuperar?token=".$this->token."'>Reestablecer contraseña</a> </p>";
+        $contenido.="<p>Presiona aqui: <a href='http://". $_SERVER["HTTP_HOST"] . "/recuperar?token=".$this->token."'>Reestablecer </a> </p>";
         $contenido.="<p>Si tu no solicitaste este cambio, ignora el mensaje</p>";
         $contenido.="</html>";
         $mail->Body=$contenido;
