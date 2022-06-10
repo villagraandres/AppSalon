@@ -33,9 +33,12 @@ class APIController{
         }
         //Retonarmos una respuesta
      
-
-     echo json_encode(['resultado' => $resultado]); 
-    }
+         // Retornamos una respuesta
+         $respuesta = [
+            'servicios' => $resultado
+        ];
+        echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
+        }
 
    public static function eliminar(){
        if($_SERVER['REQUEST_METHOD']==='POST'){
