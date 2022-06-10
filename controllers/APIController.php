@@ -4,7 +4,7 @@ namespace Controllers;
 
 use Model\Servicio;
 use Model\Cita;
-use Model\CitaServicio;
+use Model\citaServicio;
 
 class APIController{
     public static function index(){
@@ -27,7 +27,7 @@ class APIController{
             'servicioId'=>$idServicio
                 
             ];
-            $citaServicio= new CitaServicio($args);
+            $citaServicio= new citaServicio($args);
 
             $citaServicio->guardar();
         }
